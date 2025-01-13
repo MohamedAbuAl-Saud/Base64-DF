@@ -32,5 +32,6 @@ A Base64 encoding and decoding tool via the command line (Bash). This tool provi
 1. Download the script to your machine:
    ```bash
    git clone https://github.com/MohamedAbuAl-Saud/Base64-DF/
-    chmod +x encryption-DF.sh
+    cd Base64-DF
+   chmod +x encryption-DF.sh
     bash encryption-DF.sh
