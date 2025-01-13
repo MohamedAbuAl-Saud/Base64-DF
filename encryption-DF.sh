@@ -1,8 +1,9 @@
 #!/bin/bash
 
+NC='\033[0m'
 RED='\033[0;31m'
 GREEN='\033[0;32m'
-NC='\033[0m'
+CYAN='\033[0;36m'
 
 encode_base64() {
     echo -n "$1" | base64
@@ -14,21 +15,21 @@ decode_base64() {
 
 while true; do
     clear
-    echo -e "${GREEN}================================="
+    echo -e "================================="
     echo -e "        Base64 Encoder/Decoder"
     echo -e "================================="
     echo -e "1. Encode Text"
     echo -e "2. Decode Text"
     echo -e "3. Show Developer Info"
-    echo -e "4. Exit"
+    echo -e "0. Exit"
     echo -e "================================="
-    read -p "Select an option (1/2/3/4): " option
+    read -p "Select an option (1/2/3/0): " option
 
     case $option in
         1)
             read -p "Enter the text to encode: " input_text
             encoded_text=$(encode_base64 "$input_text")
-            echo -e "${RED}Encoded Text: $encoded_text${NC}"
+            echo -e "${CYAN}Encoded Text: $encoded_text${NC}"
             read -p "Press Enter to continue..."
             ;;
         2)
@@ -38,17 +39,19 @@ while true; do
             read -p "Press Enter to continue..."
             ;;
         3)
-            echo -e "${GREEN}Developer Information:"
+            echo -e "================================="
+            echo -e "Developer Information:"
             echo -e "Username: @A_Y_TR"
-            echo -e "Telegram Channel: ${RED}https://t.me/cybersecurityTemDF${NC}"
+            echo -e "Telegram Channel: ${CYAN}https://t.me/cybersecurityTemDF${NC}"
+            echo -e "================================="
             read -p "Press Enter to return to the menu..."
             ;;
-        4)
+        0)
             echo "Exiting..."
             break
             ;;
         *)
-            echo "Invalid option! Please choose 1, 2, 3, or 4."
+            echo -e "Invalid option! Please choose 1, 2, 3, or 0."
             read -p "Press Enter to try again..."
             ;;
     esac
